@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="sentry">
+            <group id="event_filtering" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Sentry event filtering</label>
+                <comment><![CDATA[Prevent events from being dispatched to Sentry by filtering on exception message contents]]></comment>
+                <field id="messages" translate="label" type="text" sortOrder="10" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Messages</label>
+                    <frontend_model>JustBetter\SentryFilterEvents\Block\Adminhtml\System\Config\Form\Field\Messages</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>Event messages to filter</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

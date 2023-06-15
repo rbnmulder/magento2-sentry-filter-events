@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <sentry>
+            <event_filtering>
+                <messages>{"_1686819911779_779":{"message":"The session has expired, please login again."},"_1686820213917_917":{"message":"The requested qty is not available"},"_1686820227732_732":{"message":"The path is not allowed:"},"_1686820300850_850":{"message":"Some of the products are out of stock."},"_1686820331567_567":{"message":"The product that was requested doesn't exist. Verify the product and try again."}}</messages>
+            </event_filtering>
+        </sentry>
+    </default>
+</config>
