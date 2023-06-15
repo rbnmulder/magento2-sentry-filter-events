@@ -1,4 +1,4 @@
-# Magento 2 Sentry Filter vents
+# Magento 2 Sentry Filter Events
 
 This Magento 2 module makes it possible to filter Sentry events by exception message.
 
