@@ -1,0 +1,28 @@
+{
+  "name": "justbetter/magento2-sentry-filter-events",
+  "description": "Magento 2 Filter for Sentry Events",
+  "type": "magento2-module",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.0",
+    "justbetter/magento2-sentry": "^3.4"
+  },
+  "authors": [
+    {
+        "name": "Robin Mulder",
+        "email": "robin@justbetter.nl",
+        "homepage": "https://justbetter.nl",
+        "role": "Developer"
+    },
+      {
+        "name": "Indy Koning",
+        "email": "indy@justbetter.nl",
+        "homepage": "https://justbetter.nl",
+        "role": "Developer"
+      }
+  ],
+  "autoload": {
+    "psr-4": { "JustBetter\\SentryFilterEvents\\": "" },
+    "files": [ "registration.php" ]
+  }
+}
