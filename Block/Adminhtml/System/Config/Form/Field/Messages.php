@@ -11,7 +11,6 @@ use Magento\Config\Block\System\Config\Form\Field\FieldArray\AbstractFieldArray;
 class Messages extends AbstractFieldArray
 {
 
-
     /**
      * Initialise form fields
      *
