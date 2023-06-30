@@ -30,16 +30,18 @@ class BeforeSending implements ObserverInterface
         $event = $observer->getEvent()->getSentryEvent()->getEvent();
         $hint = $observer->getEvent()->getSentryEvent()->getHint();
 
-        $hintMessage = $hint->exception->getMessage();
-        if ($hint->exception instanceof LocalizedException) {
-            $hintMessage = $hint->exception->getRawMessage();
-            $event->setMessage($hintMessage);
-        }
+        if ($hint?->exception !== null) {
+            $hintMessage = $hint->exception->getMessage();
+            if ($hint->exception instanceof LocalizedException) {
+                $hintMessage = $hint->exception->getRawMessage();
+                $event->setMessage($hintMessage);
+            }
 
-        $messages = $this->json->unserialize($this->scopeConfig->getValue('sentry/event_filtering/messages'));
-        foreach ($messages as $message) {
-            if (str_contains($hintMessage, $message['message'])) {
-                $observer->getEvent()->getSentryEvent()->unsEvent();
+            $messages = $this->json->unserialize($this->scopeConfig->getValue('sentry/event_filtering/messages'));
+            foreach ($messages as $message) {
+                if (str_contains($hintMessage, $message['message'])) {
+                    $observer->getEvent()->getSentryEvent()->unsEvent();
+                }
             }
         }
     }
