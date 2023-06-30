@@ -30,8 +30,8 @@ class BeforeSending implements ObserverInterface
         $event = $observer->getEvent()->getSentryEvent()->getEvent();
         $hint = $observer->getEvent()->getSentryEvent()->getHint();
 
-        $hintMessage = $hint->exception->getMessage();
-        if ($hint->exception instanceof LocalizedException) {
+        $hintMessage = $hint?->exception?->getMessage() ?? $event->getMessage();
+        if ($hint?->exception instanceof LocalizedException) {
             $hintMessage = $hint->exception->getRawMessage();
             $event->setMessage($hintMessage);
         }
@@ -40,7 +40,9 @@ class BeforeSending implements ObserverInterface
         foreach ($messages as $message) {
             if (str_contains($hintMessage, $message['message'])) {
                 $observer->getEvent()->getSentryEvent()->unsEvent();
+                break;
             }
         }
+
     }
 }
